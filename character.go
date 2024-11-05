@@ -1,24 +1,19 @@
 package main
 
-import "errors"
-
 type Character struct {
 	name string
+	job  string
+	hp   int
+	mp   int
+	atk  int
 }
 
-func New() *Character {
-	return &Character{}
-}
-
-func (c *Character) SetName(name string) error {
-	if name != "" {
-		c.name = name
-		return nil
+func NewCharacter(name string) *Character {
+	return &Character{
+		name: name,
+		job:  "novice",
+		hp:   100,
+		mp:   100,
+		atk:  10,
 	}
-
-	return errors.New("name should not empty")
-}
-
-func (c *Character) Name() string {
-	return c.name
 }
